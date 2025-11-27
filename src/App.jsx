@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Sword, Users, Book, Heart, Trophy, Target, Calendar, Plus, Check, X, Sparkles, TrendingUp, Star, Award, Zap } from 'lucide-react';
+import { Sword, Users, Book, Heart, Trophy, Target, Plus, Check, Sparkles, TrendingUp, Star, Zap } from 'lucide-react';
 
 const QuestLife = () => {
   const [screen, setScreen] = useState('welcome');
@@ -149,9 +149,6 @@ const QuestLife = () => {
 
     const handleComplete = () => {
       const personality = calculatePersonality();
-      const recommendedClasses = classes.filter(c => 
-        c.personality === personality || c.id === 'ranger'
-      );
       
       const finalChar = {
         ...formData,
@@ -252,7 +249,7 @@ const QuestLife = () => {
                     type="text"
                     value={formData.name}
                     onChange={(e) => setFormData({...formData, name: e.target.value})}
-                    className="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 focus:outline-none focus:border-purple-500"
+                    className="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-purple-500"
                     placeholder="Enter your name"
                   />
                 </div>
@@ -264,7 +261,7 @@ const QuestLife = () => {
                       type="number"
                       value={formData.age}
                       onChange={(e) => setFormData({...formData, age: e.target.value})}
-                      className="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 focus:outline-none focus:border-purple-500"
+                      className="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-purple-500"
                       placeholder="25"
                     />
                   </div>
@@ -273,7 +270,7 @@ const QuestLife = () => {
                     <select
                       value={formData.gender}
                       onChange={(e) => setFormData({...formData, gender: e.target.value})}
-                      className="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 focus:outline-none focus:border-purple-500"
+                      className="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-purple-500"
                     >
                       <option value="">Select</option>
                       <option value="male">Male</option>
@@ -291,7 +288,7 @@ const QuestLife = () => {
                       type="number"
                       value={formData.height}
                       onChange={(e) => setFormData({...formData, height: e.target.value})}
-                      className="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 focus:outline-none focus:border-purple-500"
+                      className="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-purple-500"
                       placeholder="170"
                     />
                   </div>
@@ -301,7 +298,7 @@ const QuestLife = () => {
                       type="number"
                       value={formData.weight}
                       onChange={(e) => setFormData({...formData, weight: e.target.value})}
-                      className="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 focus:outline-none focus:border-purple-500"
+                      className="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-purple-500"
                       placeholder="70"
                     />
                   </div>
@@ -384,7 +381,7 @@ const QuestLife = () => {
                           RECOMMENDED
                         </div>
                       )}
-                      <Icon className={`w-12 h-12 mb-3 text-${cls.color}-400`} />
+                      <Icon className="w-12 h-12 mb-3" />
                       <h3 className="text-xl font-bold mb-2">{cls.name}</h3>
                       <p className="text-sm text-slate-400 mb-2">{cls.desc}</p>
                       <p className="text-xs text-purple-300">{cls.strengths}</p>
@@ -570,15 +567,14 @@ const QuestLife = () => {
             <div className="space-y-3">
               {activeQuests.map((quest) => {
                 const CategoryIcon = categories[quest.category]?.icon || Target;
-                const color = categories[quest.category]?.color || 'purple';
                 
                 return (
                   <div key={quest.id} className="bg-slate-800 rounded-lg p-4 shadow-lg">
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-2">
-                          <CategoryIcon className={`w-5 h-5 text-${color}-400`} />
-                          <span className={`text-xs px-2 py-1 bg-${color}-900 text-${color}-300 rounded`}>
+                          <CategoryIcon className="w-5 h-5" />
+                          <span className="text-xs px-2 py-1 bg-slate-700 rounded">
                             {quest.difficulty}
                           </span>
                           <span className="text-xs text-yellow-400 flex items-center gap-1">
@@ -640,7 +636,7 @@ const QuestLife = () => {
                       type="text"
                       value={newQuest.title}
                       onChange={(e) => setNewQuest({...newQuest, title: e.target.value})}
-                      className="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 focus:outline-none focus:border-purple-500"
+                      className="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-purple-500"
                       placeholder="What do you want to accomplish?"
                     />
                   </div>
@@ -650,7 +646,7 @@ const QuestLife = () => {
                     <textarea
                       value={newQuest.description}
                       onChange={(e) => setNewQuest({...newQuest, description: e.target.value})}
-                      className="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 focus:outline-none focus:border-purple-500"
+                      className="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-purple-500"
                       rows="3"
                       placeholder="Add details..."
                     />
@@ -661,7 +657,7 @@ const QuestLife = () => {
                     <select
                       value={newQuest.category}
                       onChange={(e) => setNewQuest({...newQuest, category: e.target.value})}
-                      className="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 focus:outline-none focus:border-purple-500"
+                      className="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-purple-500"
                     >
                       <option value="social">Social</option>
                       <option value="fitness">Fitness</option>
@@ -677,7 +673,7 @@ const QuestLife = () => {
                     <select
                       value={newQuest.difficulty}
                       onChange={(e) => setNewQuest({...newQuest, difficulty: e.target.value})}
-                      className="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 focus:outline-none focus:border-purple-500"
+                      className="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-purple-500"
                     >
                       <option value="easy">Easy (20 XP)</option>
                       <option value="medium">Medium (30 XP)</option>
@@ -687,9 +683,17 @@ const QuestLife = () => {
                 </div>
 
                 <div className="flex gap-3 mt-6">
-                onClick={addCustomQuest}
+                  <button
+                    onClick={() => setShowAddQuest(false)}
+                    className="flex-1 bg-slate-700 hover:bg-slate-600 text-white font-bold py-3 px-6 rounded-lg transition-all"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    onClick={addCustomQuest}
                     disabled={!newQuest.title}
-                    className="flex-1 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 disabled:from-slate-600 disabled:to-slate-600 text-white font-bold py-3 px-6 rounded-lg transition-all"
+                    className="flex-1 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 disabled:from-slate-600 disabled:to-slate-600 text-white font-bold py-3 px
+                  -6 rounded-lg transition-all"
                   >
                     Create Quest
                   </button>
