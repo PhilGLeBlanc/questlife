@@ -692,8 +692,7 @@ const QuestLife = () => {
                   <button
                     onClick={addCustomQuest}
                     disabled={!newQuest.title}
-                    className="flex-1 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 disabled:from-slate-600 disabled:to-slate-600 text-white font-bold py-3 px
-                  -6 rounded-lg transition-all"
+                    className="flex-1 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 disabled:from-slate-600 disabled:to-slate-600 text-white font-bold py-3 px-6 rounded-lg transition-all"
                   >
                     Create Quest
                   </button>
